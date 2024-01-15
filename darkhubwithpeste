@@ -9,13 +9,9 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
-local responses = {"kakakakak que?", "??", "bom, se você acha.", "bro??? que?", "com raiva por que é ruim kakakakakak", "falta de habilidade", "chora"}
-local gameEndResponses = {"gg", "gg :3", "bom jogo", "jogaram muito", "jogaram demais slk", "gg mano"}
-local keywords = {"auto parry", "auto", "cheat", "hack", "script"}
-
 local Window = Fluent:CreateWindow({
     Title = "Dark hub" .. Fluent.Version,
-    SubTitle = "by Bacon - 97% peste - 3% bacon",
+    SubTitle = "by Bacon -- Peste",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
@@ -31,20 +27,19 @@ local Tabs = {
 
 }
 
-local function Velocidade()
-  local character = game.Players.LocalPlayer.Character
-  
-  -- Em seguida, obtenha a propriedade Humanoid do personagem
-  local humanoid = character:FindFirstChildOfClass('Humanoid')
-  
-  -- Finalmente, defina a propriedade WalkSpeed do Humanoid para 50
-  humanoid.WalkSpeed = 50
-end
+
 
 Tabs.Main:AddButton({
         Title = "Mudar a velocidade",
         Description = "Mude a velocidade do usuario para 50",
         Callback = function()
-          getgenv().Velocidade = true
+          local function Velocidade()
+            local character = game.Players.LocalPlayer.Character
+            
+            
+            local humanoid = character:FindFirstChildOfClass('Humanoid')
+            
+            humanoid.WalkSpeed = 50
+          end
 
 end})
