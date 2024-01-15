@@ -1,0 +1,50 @@
+print("Bypassing Security Checks..")
+
+game:GetService("ReplicatedStorage").Security.RemoteEvent:Destroy()
+game:GetService("ReplicatedStorage").Security[""]:Destroy()
+game:GetService("ReplicatedStorage").Security:Destroy()
+game:GetService("Players").LocalPlayer.PlayerScripts.Client.DeviceChecker:Destroy()
+
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+
+local responses = {"kakakakak que?", "??", "bom, se você acha.", "bro??? que?", "com raiva por que é ruim kakakakakak", "falta de habilidade", "chora"}
+local gameEndResponses = {"gg", "gg :3", "bom jogo", "jogaram muito", "jogaram demais slk", "gg mano"}
+local keywords = {"auto parry", "auto", "cheat", "hack", "script"}
+
+local Window = Fluent:CreateWindow({
+    Title = "Dark hub" .. Fluent.Version,
+    SubTitle = "by Bacon - 97% peste - 3% bacon",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(580, 460),
+    Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
+})
+
+--Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
+local Tabs = {
+    Main = Window:AddTab({ Title = "Main", Icon = "" }),
+
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+
+}
+
+local function Velocidade()
+  local character = game.Players.LocalPlayer.Character
+  
+  -- Em seguida, obtenha a propriedade Humanoid do personagem
+  local humanoid = character:FindFirstChildOfClass('Humanoid')
+  
+  -- Finalmente, defina a propriedade WalkSpeed do Humanoid para 50
+  humanoid.WalkSpeed = 50
+end
+
+Tabs.Main:AddButton({
+        Title = "Mudar a velocidade",
+        Description = "Mude a velocidade do usuario para 50",
+        Callback = function()
+          getgenv().Velocidade = true
+
+end})
